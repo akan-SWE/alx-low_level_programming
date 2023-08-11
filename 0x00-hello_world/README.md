@@ -32,7 +32,7 @@
 - Your program should return _0_.<br>
 - You program should compile without warning when using the _-Wall_ _gcc_ option.<br>
 
-** 6-size.c** - this C program prints the size of various types on the computer it is compled and run on.<br>
+**6-size.c** - this C program prints the size of various types on the computer it is compled and run on.<br>
 
 - You should produce the exact same output as in the example.<br>
 - Warning are allowed.<br>
