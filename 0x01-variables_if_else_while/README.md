@@ -27,3 +27,15 @@
 **8-print_base16.c** - This program prints all the numbers of base 16 in lowercase, followed by a new line.<br>
 
 **9-print_comb.c** - This program prints all possible combinations of single-digit numbers
+
+**100-print_comb3.c** - This program prints all possible different combinations of two digits.<br>
+
+- The two digits are different.<br>
+
+**101-print_comb4.c** - This program prints all possible different combinations of three digit.<br>
+
+- The three digit are different.<br>
+
+**102-print_comb5.c** - This program prints all possible combinations of two two-digit numbers.<br>
+
+- The numbers ranges from 0 to 99.<br>
