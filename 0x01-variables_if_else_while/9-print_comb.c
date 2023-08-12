@@ -32,17 +32,18 @@ int main(void)
  * TODO: PSEUDOCODE
  *
  * START
- * Initialize number = 0
+ * Set number = 0
  *
- * WHILE number < 10
-	 *	output number
-	 *	output comma
-	 *	outup blank-space
-
-	 *	if number == 9
-	 *		output number
+ *WHILE number < 10
+ *Output number
  *
- * END WHILE
+ *IF number != 9
+ *Output comma
+ *Output a blank-space
+ *END IF
+ *Increment number by 1
+ *END WHILE
  *
+ *Output a new-line
  * END
  */
