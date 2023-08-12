@@ -27,23 +27,3 @@ int main(void)
 	putchar('\n');
 	return (0);
 }
-
-/*
- * TODO: PSEUDOCODE
- *
- * START
- * Set number = 0
- *
- *WHILE number < 10
- *Output number
- *
- *IF number != 9
- *Output comma
- *Output a blank-space
- *END IF
- *Increment number by 1
- *END WHILE
- *
- *Output a new-line
- * END
- */
