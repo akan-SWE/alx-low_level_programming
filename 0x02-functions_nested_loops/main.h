@@ -77,4 +77,18 @@ int print_last_digit(int);
  */
 void jack_bauer(void);
 
+/**
+ * times_table - print the 9 times table, starting from 0
+ *
+ * Return: void (empty)
+ */
 void times_table(void);
+/**
+ * add - adds two integers
+ *
+ * @first: first integer to be added
+ * @second: second integer to be added
+ *
+ * Return: result
+ */
+int add(int first, int second);
