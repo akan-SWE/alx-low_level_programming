@@ -102,4 +102,18 @@ int add(int first, int second);
  */
 void print_to_98(int n);
 
+/**
+ * print_times_table - prints the n times table, starting with 0
+ *
+ * @n: this is the times table value limit
+ *
+ * Retun: void
+ */
 void print_times_table(int n);
+
+/**
+ * sum_of_naturalNumber - print the sum of natural number below 1024
+ *
+ * Return: void
+ */
+void sum_of_naturalNumber(void);
