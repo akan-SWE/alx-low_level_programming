@@ -92,3 +92,12 @@ void times_table(void);
  * Return: result
  */
 int add(int first, int second);
+
+/**
+ * print_to_98 - print natural numbers to 98
+ *
+ * @n: natural number starting point
+ *
+ * Return: (void)
+ */
+void print_to_98(int n);
