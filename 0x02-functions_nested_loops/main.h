@@ -1,5 +1,5 @@
-#ifndef main_h
-#define main_h
+#ifndef MAIN_H
+#define MAIN_H
 int _putchar(char c);
 #endif
 /*
@@ -57,3 +57,12 @@ int print_sign(int n);
  * Return: the absolute value
  */
 int _abs(int);
+
+/**
+ * print_last_digit - print the last digit of a number
+ *
+ * @number: the number is passed to the function to get the last digit
+ *
+ * Return: lastDigit
+ */
+int print_last_digit(int);
