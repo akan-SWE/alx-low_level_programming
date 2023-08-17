@@ -118,6 +118,26 @@ void print_times_table(int n);
  */
 void sum_of_naturalNumber(void);
 
+/**
+ * print_fibonnacci - print the first 50 fibonnacci from 1 and 2
+ *
+ * Return: void
+ */
 void print_fibonnacci(void);
 
+/**
+ * main - Entry point
+ *
+ * Description: Finds and prints the sum of the even-valued terms
+ * in the Fibonacci sequence that do not exceed 4,000,000.
+ *
+ * Return: Always 0 (success)
+ */
 void print_even_fibonacci(void);
+
+/**
+ * print_fibonnacci - print the first 98 fibonnacci from 1 and 2
+ *
+ * Return: void
+ */
+void print_fibonnacciTwo(void);
