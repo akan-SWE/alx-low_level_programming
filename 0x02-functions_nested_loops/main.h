@@ -119,3 +119,5 @@ void print_times_table(int n);
 void sum_of_naturalNumber(void);
 
 void print_fibonnacci(void);
+
+void print_even_fibonacci(void);
