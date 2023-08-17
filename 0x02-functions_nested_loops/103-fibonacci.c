@@ -11,16 +11,16 @@
  */
 int main(void)
 {
-	unsigned long int a = 1, b = 2, c, sum = 0;
+	unsigned long int a = 1, b = 2, carry, sum = 0;
 
 	while (a <= 4000000)
 	{
 		if (a % 2 == 0)
 			sum += a;
 
-		c = a + b;
+		carry = a + b;
 		a = b;
-		b = c;
+		b = carry;
 	}
 
 	printf("%lu\n", sum);
