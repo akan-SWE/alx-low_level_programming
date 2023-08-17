@@ -117,3 +117,5 @@ void print_times_table(int n);
  * Return: void
  */
 void sum_of_naturalNumber(void);
+
+void print_fibonnacci(void);
