@@ -15,4 +15,7 @@ void print_square(int size);
 void print_triangle(int size);
 int _putchar(char c);
 void print_number(int n);
+
+#define INITIAL 1
+
 #endif /* MAIN_H */
