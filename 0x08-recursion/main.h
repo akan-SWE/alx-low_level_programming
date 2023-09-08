@@ -52,4 +52,17 @@ int _sqrt_recursion(int n);
  */
 int is_prime_number(int n);
 
+/**
+ * is_palindrome - checks if string is a palindrome.
+ *
+ * The function checks if string is palindrome by utilizing
+ * the rev_and_compare function.
+ *
+ * @s: The input string to check for palindrome.
+ *
+ * Return: the result of the rev_and_compare function
+ * (1 if palindrome, 0 otherwise)
+ */
+
+int is_palindrome(char *s);
 #endif /*MAIN_H*/
