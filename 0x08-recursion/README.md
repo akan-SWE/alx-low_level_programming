@@ -33,3 +33,10 @@ This directory contains all the projects files for 0x08. C - Recursion, and the 
 **6-is_prime_number.c** - A function that returns *1* if the input integer is a *prime number*, otherwise return *0*.
 
 * Prototype: *int is\_prime\_number(int n);*
+
+**100-is_palindrome.c** - A function that returns *1* if a string is palindrome and *0* if not
+
+
+**101-wildcmp.c** - A function that compares two strings and returns *1* if the string can be considered identical, otherwise return *0*
+
+* Prototype: *int wildcmp(char \*s1, char \*s2);*
