@@ -8,14 +8,36 @@
 
 /*Function prototypes*/
 
+
 /**
- * main - Entry point
+ * print_program_name - Print the program name
  *
- * @argc: number of argument passed
+ * @argc: number of argument
  * @argv: the argument
  *
- * Return: 0 (Success)
+ * Return: void (Nothing)
  */
-int main(int argc, char *argv[]);
+void print_program_name(int argc, char *argv[]);
+
+/**
+ * print_noOfArg - prints number of argument
+ *
+ * @argc: number of arguments passed
+ * @argv: the argument
+ *
+ * Return: void (Nothing)
+ */
+void print_noOfArg(int argc, char *argv[]);
+
+/**
+ * print_arg - print arguments recieved
+ *
+ * @argc: numer of argument passed
+ * @argv: the argument
+ *
+ * Return: void (Nothing)
+ */
+void print_arg(int argc, char *argv[]);
+
 
 #endif /*MAIN_H*/
