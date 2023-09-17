@@ -17,7 +17,7 @@
  *
  * Return: void (Nothing)
  */
-void print_program_name(int argc, char *argv[]);
+void print_program_name(int __attribute__ ((unused)) argc, char *argv[]);
 
 /**
  * print_noOfArg - prints number of argument
