@@ -20,14 +20,14 @@
 void print_program_name(int __attribute__ ((unused)) argc, char *argv[]);
 
 /**
- * print_noOfArg - prints number of argument
+ * print_arg_count - prints number of argument
  *
  * @argc: number of arguments passed
  * @argv: the argument
  *
  * Return: void (Nothing)
  */
-void print_noOfArg(int argc, char *argv[]);
+void print_arg_count(int argc, char __attribute__ ((unused)) *argv[]);
 
 /**
  * print_arg - print arguments recieved
