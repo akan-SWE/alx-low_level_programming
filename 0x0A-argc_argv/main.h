@@ -60,4 +60,17 @@ int mul(int argc, char *argv[]);
  */
 int add_positive_num(int argc, char *argv[]);
 
+/**
+ * calculate_min_coins - Calculate the minimum number of coins
+ * required to make change for a given amount of money.
+ *
+ * @argc: The number of arguments passed to the program.
+ * @argv: An array of arguments passed to the program.
+ *
+ * Return:
+ *   -  0: If the program runs successfully.
+ *   -  1: If argc is not equal to 2.
+ *   - -1: If the argument number (amount of money) is negative.
+ */
+int calculate_min_coins(int argc, char *argv[]);
 #endif /*MAIN_H*/
