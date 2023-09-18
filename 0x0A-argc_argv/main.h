@@ -39,5 +39,14 @@ void print_arg_count(int argc, char __attribute__ ((unused)) *argv[]);
  */
 void print_arg(int argc, char *argv[]);
 
+/**
+ * mul - multplies two numbers
+ *
+ * @argc: number of argument passed
+ * @argv: argument passed
+ *
+ * Return: 1, if argc the program does not recieve two argument, otherwise 0
+ */
+int mul(int argc, char *argv[]);
 
 #endif /*MAIN_H*/
