@@ -4,6 +4,7 @@
 /*system headers*/
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
 #include <string.h>
 
 /*Function prototypes*/
@@ -48,5 +49,15 @@ void print_arg(int argc, char *argv[]);
  * Return: 1, if argc the program does not recieve two argument, otherwise 0
  */
 int mul(int argc, char *argv[]);
+
+/**
+ * add_positive_num - add postive numbers
+ *
+ * @argc: number of argument passed
+ * @argv: argument passed or number
+ *
+ * Return: 1, if any of the argument is not a number, otherwise 0
+ */
+int add_positive_num(int argc, char *argv[]);
 
 #endif /*MAIN_H*/
