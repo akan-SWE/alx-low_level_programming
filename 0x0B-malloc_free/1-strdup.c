@@ -1,6 +1,4 @@
 #include "main.h"
-#include <string.h>
-#include <stdio.h>
 
 /**
  * _strdup - create a copy of the string @str
@@ -22,7 +20,8 @@ char *_strdup(char *str)
 		return (NULL);
 
 	size = strlen(str);
-	copy = (char *)malloc(sizeof(char) * size);
+	/*Allocate memory including the null-terminator*/
+	copy = (char *)malloc(sizeof(char) * (size + 1));
 
 	if (copy == NULL)
 	{
@@ -30,11 +29,13 @@ char *_strdup(char *str)
 		return (NULL);
 	}
 
+	i = 0;
 	while (i < size)
 	{
 		copy[i] = str[i];
 		i++;
 	}
 
+	copy[i] = '\0';
 	return (copy);
 }
