@@ -21,11 +21,11 @@ char *_strdup(char *str)
 
 	size = strlen(str);
 	/*Allocate memory including the null-terminator*/
-	copy = (char *)malloc(sizeof(char) * (size + 1));
+	copy = (char *)malloc(sizeof(char) * (size + NULL_BYTE));
 
 	if (copy == NULL)
 	{
-		write(1, "failed to allocate memory", 25);
+		write(1, "failed to allocate memory", STRING_SIZE);
 		return (NULL);
 	}
 
