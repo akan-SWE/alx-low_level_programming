@@ -28,7 +28,7 @@ char *create_array(unsigned int size, char c)
 	/*memory allocation failed, hence return NULL*/
 	if (array == NULL)
 	{
-		write(1, "failed to allocate memory", 25);
+		write(1, "failed to allocate memory", STRING_SIZE);
 		return (NULL);
 	}
 
