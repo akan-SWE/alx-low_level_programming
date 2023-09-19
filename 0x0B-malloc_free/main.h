@@ -1,8 +1,10 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+/*system header*/
 #include <stdlib.h>
 #include <unistd.h>
+#include <string.h>
 
 /**
  * create_array - creates an array of char
