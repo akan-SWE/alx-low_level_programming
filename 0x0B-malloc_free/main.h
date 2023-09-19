@@ -5,6 +5,8 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#define STRING_SIZE 25
+#define NULL_BYTE 1
 
 /**
  * create_array - creates an array of char
