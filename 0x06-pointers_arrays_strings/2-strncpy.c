@@ -1,6 +1,5 @@
 #include "main.h"
-#include <stdio.h>
-#include <stdlib.h>
+
 /**
  * _strncpy - copy n number of character from source to dest
  *
