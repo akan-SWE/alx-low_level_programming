@@ -1,8 +1,7 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
- * _puts_recursion - Print a string recursively, followed by a new line.void 
+ * _puts_recursion - Print a string recursively, followed by a new line.void
  *
  * @s: The string to print.
  *
@@ -10,16 +9,12 @@
  */
 void _puts_recursion(char *s)
 {
-  putchar(*s);
-  s++;
-  if (*s == '\0')
-    putchar('\n'); /* Print newline after the last element */
-
   /* Recursion stops when *s reaches null */
-  if (*s > '\0')
-  {
-    _puts_recursion(s);
-  }
-
-
+	if (*s != '\0')
+	{
+		putchar(*s);
+		_puts_recursion(++s);
+	}
+	else
+	putchar('\n'); /* Print newline after the last element */
 }
