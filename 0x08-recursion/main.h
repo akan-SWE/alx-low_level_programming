@@ -1,6 +1,10 @@
 #ifndef MAIN_H
 #define MAIN_H
+
+
+/* system headers */
 #include <stdio.h>
+#include <string.h>
 
 /**
  * _puts_recursion - Print a string recursively, followed by a new line.
@@ -92,4 +96,18 @@ int prime_helper(int n, int count);
 
 int is_palindrome(char *s);
 
+/**
+ * rev_and_compare - Reverses the string and compare.
+ *
+ * This function reverses a string and compares it will it original string
+ * as long as it remains the same it returns 1, 0 otherwise.
+ *
+ * @s: The string to reverse and compare.
+ * @clone: a copy of the original string to prevent changes during recursion.
+ * @i: Current index.
+ * @length: The length of the string.
+ *
+ * Return: 1 if it a palindrome and 0 otherwise.
+ */
+int rev_and_compare(char *s, char *clone, int i, int length);
 #endif /*MAIN_H*/
