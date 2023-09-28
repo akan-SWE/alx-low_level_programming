@@ -65,4 +65,17 @@ int is_prime_number(int n);
  */
 
 int is_palindrome(char *s);
+
+/**
+ * sqrt_helper - a helper function
+ * to get the square root of the number
+ *
+ * @n: the number
+ * @sqrt: the guess of the square root
+ *
+ * Return: guess (square root) if it a natural square root
+ * -1 otherwise
+ */
+int sqrt_helper(int n, int sqrt);
+
 #endif /*MAIN_H*/
