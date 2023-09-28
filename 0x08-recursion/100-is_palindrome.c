@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * is_palindrome - checks if string is a palindrome.
@@ -15,11 +16,14 @@ int is_palindrome(char *s)
 {
 	int i;
 	char *clone = NULL;
+	int length;
+
+	length = strlen(s);
 
 	/* Need a clone so that it remains constant during recursion */
 	clone = s;
-
-	return (rev_and_compare(s, clone, i, strlen(s)));
+	i = 0;
+	return (rev_and_compare(s, clone, i, length));
 }
 
 /**
@@ -41,8 +45,12 @@ int rev_and_compare(char *s, char *clone, int i, int length)
 		return (1);
 
 	if (clone[length - 1 - i] == clone[i])
-		return (rev_and_compare(s + 1, clone, i++, length));
+	{
+		return (rev_and_compare(s + 1, clone, i + 1, length));
+	}
 	else
+	{
 		return (0);
+	}
 }
 
