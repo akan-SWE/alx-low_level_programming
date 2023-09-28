@@ -46,11 +46,37 @@ int _pow_recursion(int x, int y);
 int _sqrt_recursion(int n);
 
 /**
- * is_prime_number - Checks if a number is prime recursively.
- * @n: The number to check for primality.
- * Return: 1 if the input number is a prime number, 0 otherwise.
+ * sqrt_helper - a helper function
+ * to get the square root of the number
+ *
+ * @n: the number
+ * @sqrt: the guess of the square root
+ *
+ * Return: guess (square root) if it a natural square root
+ * -1 otherwise
+ */
+int sqrt_helper(int n, int sqrt);
+
+/**
+ * is_prime_number - Calls the prime_helper to check for a prime number
+ *
+ * @n: The number to check for primality
+ * 
+ * Return: 0 if the number is less than 1, otherwise return prime_helper
  */
 int is_prime_number(int n);
+
+
+/**
+ * prime_helper - a helper function
+ * to check for a prime number recursively
+ *
+ * @n: The number to check for primality
+ * @count: Used to check if the number is a prime
+ *
+ * Return: 1, if it a prime and 0 otherwise
+ */
+int prime_helper(int n, int count);
 
 /**
  * is_palindrome - checks if string is a palindrome.
@@ -65,17 +91,5 @@ int is_prime_number(int n);
  */
 
 int is_palindrome(char *s);
-
-/**
- * sqrt_helper - a helper function
- * to get the square root of the number
- *
- * @n: the number
- * @sqrt: the guess of the square root
- *
- * Return: guess (square root) if it a natural square root
- * -1 otherwise
- */
-int sqrt_helper(int n, int sqrt);
 
 #endif /*MAIN_H*/
