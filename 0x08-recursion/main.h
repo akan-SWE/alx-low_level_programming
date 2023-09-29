@@ -110,4 +110,14 @@ int is_palindrome(char *s);
  * Return: 1 if it a palindrome and 0 otherwise.
  */
 int rev_and_compare(char *s, char *clone, int i, int length);
+
+/**
+ * wildcmp - compares two strings, where @s2 can contain wildcard '*'
+ *
+ * @s1: first string
+ * @s2: second string
+ *
+ * Return: 1 if the strings are identical, otherwise 0
+ */
+int wildcmp(char *s1, char *s2);
 #endif /*MAIN_H*/
