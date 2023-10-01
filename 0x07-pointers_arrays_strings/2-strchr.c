@@ -11,13 +11,12 @@
  */
 char *_strchr(char *s, char c)
 {
-	int i;
-
-	/*check if it matches and return a pointer if it does*/
-	for (i = 0; *(s + i) != '\0'; i++)
+	/* check if it matches and return a pointer if it does */
+	while (*s != '\0')
 	{
-		if (*(s + i) == c)
-			return (s + i);
+		if (*s == c)
+			return (s);
+		s++;
 	}
 	return (NULL); /*return NULL if no character matches*/
 }
