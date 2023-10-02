@@ -73,4 +73,13 @@ int add_positive_num(int argc, char *argv[]);
  *   - -1: If the argument number (amount of money) is negative.
  */
 int calculate_min_coins(int argc, char *argv[]);
+
+/**
+ * _isdigit - checks if a string is a number
+ *
+ * @string: The string to check
+ *
+ * Return: 1 if it a number and 0 otherwise
+ */
+int _isdigit(char *string);
 #endif /*MAIN_H*/
