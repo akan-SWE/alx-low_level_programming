@@ -3,6 +3,8 @@
 
 /* system header */
 #include <stdlib.h>
+#include <stdio.h>
+#include "string.h"
 
 /**
  * _memset - fill memory with a constant character
@@ -37,4 +39,5 @@ char *_memcpy(char *dest, char *src, unsigned int n);
  */
 char *_strchr(char *s, char c);
 
+unsigned int _strspn(char *s, char *accept);
 #endif /* MAIN_H */
