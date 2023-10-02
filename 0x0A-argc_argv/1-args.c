@@ -23,5 +23,5 @@ int main(int __attribute__ ((unused)) argc, char *argv[])
  */
 void print_arg_count(int argc, char __attribute__ ((unused)) *argv[])
 {
-	printf("%d\n", argc);
+	printf("%d\n", (argc - 1)); /* excluding the program name with -1 */
 }
