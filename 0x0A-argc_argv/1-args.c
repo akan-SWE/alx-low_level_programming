@@ -1,3 +1,4 @@
+#include "main.h"
 
 /**
  * main - Entry point
@@ -7,8 +8,6 @@
  *
  * Return: 0 (Success)
  */
-#include "main.h"
-#include <stdio.h>
 int main(int __attribute__ ((unused)) argc, char *argv[])
 {
 	print_arg_count(argc, argv);
