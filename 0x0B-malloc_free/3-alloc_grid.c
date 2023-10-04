@@ -1,5 +1,5 @@
+#include <stdio.h>
 #include "main.h"
-#include <stdlib.h>
 
 /**
  * alloc_grid - creates a 2 dimentional array
@@ -33,10 +33,10 @@ int **alloc_grid(int width, int height)
 
 		if (grid_array[i] == NULL)
 		{
-			for (k = 0; k < width; k++)
-			{
+			for (k = 0; k < i; k++)
 				free(grid_array[k]);
-			}
+
+			free(grid_array);
 			return (NULL);
 		}
 	}
