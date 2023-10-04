@@ -14,12 +14,13 @@
  */
 char *create_array(unsigned int size, char c)
 {
-	int i;
+	unsigned int i;
+	char *pArray = NULL;
 
 	if (size == 0)
 		return (NULL);
 
-	char *pArray = malloc(size * sizeof(char));
+	pArray = malloc(size * sizeof(char));
 
 	/* Memory allocation failed */
 	if (pArray == NULL)
