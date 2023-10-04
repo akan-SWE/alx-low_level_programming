@@ -20,6 +20,8 @@ char *str_concat(char *s1, char *s2)
 		s2 = "";
 
 	/*Getting the length of the strings*/
+	size1 = strlen(s1);
+	size2 = strlen(s2);
 	totalSize = (strlen(s1) + strlen(s2));
 
 	/*Allocate memory, including the null-terminator*/
