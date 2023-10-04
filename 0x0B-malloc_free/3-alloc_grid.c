@@ -13,7 +13,7 @@
  */
 int **alloc_grid(int width, int height)
 {
-	int i, k, j, **grid_array;
+	int i, j, **grid_array;
 
 	if (width <= 0 || height <= 0)
 		return (NULL);
@@ -23,22 +23,15 @@ int **alloc_grid(int width, int height)
 
 	/* Memory allocation failed, hence return */
 	if (grid_array == NULL)
-	{
 		return (NULL);
-	}
+
 	for (i = 0; i < height; i++)
 	{
 		/* The pointers created, will point, to a 1D array each */
 		grid_array[i] = malloc(width * sizeof(int));
 
 		if (grid_array[i] == NULL)
-		{
-			for (k = 0; k < i; k++)
-				free(grid_array[k]);
-
-			free(grid_array);
 			return (NULL);
-		}
 	}
 
 	i = 0;
