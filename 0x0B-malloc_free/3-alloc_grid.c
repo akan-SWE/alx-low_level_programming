@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "main.h"
 
 /**
@@ -16,13 +15,15 @@ int **alloc_grid(int width, int height)
 {
 	int i, k, j, **grid_array;
 
+	if (width <= 0 || height <= 0)
+		return (NULL);
+
 	/* Create pointers of the fixed height */
 	grid_array = malloc(height * sizeof(int *));
 
 	/* Memory allocation failed, hence return */
 	if (grid_array == NULL)
 	{
-		write(1, "failed memory allocation", STRING_SIZE);
 		return (NULL);
 	}
 	for (i = 0; i < height; i++)
@@ -30,7 +31,6 @@ int **alloc_grid(int width, int height)
 		/* The pointers created, will point, to a 1D array each */
 		grid_array[i] = malloc(width * sizeof(int));
 
-		/*memory allocating failed for each 1D array so free and return*/
 		if (grid_array[i] == NULL)
 		{
 			for (k = 0; k < i; k++)
@@ -42,7 +42,6 @@ int **alloc_grid(int width, int height)
 	}
 
 	i = 0;
-	/* For every heighth, width interactes with a value of 0*/
 	while (i < height)
 	{
 		j = 0;
@@ -53,7 +52,6 @@ int **alloc_grid(int width, int height)
 		}
 		i++;
 	}
-
 	return (grid_array); /* The grid*/
 }
 
