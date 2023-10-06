@@ -3,6 +3,7 @@
 
 /*system header*/
 #include <stdlib.h>
+#include <stdio.h>
 #include <unistd.h>
 #include <string.h>
 #define STRING_SIZE 25
@@ -77,5 +78,33 @@ void free_grid(int **grid, int height);
  * Return: a pointer of the new concatenated string
  */
 char *argstostr(int ac, char **av);
+
+/**
+* strtow - fills the individual character in the grid
+* one word per array
+*
+* @str: The string
+*
+* Return: The new string grid
+*/
+char **strtow(char *str);
+
+/**
+ * alloc_grid_string - allocate memory for the grid
+ *
+ * @str: The string
+ *
+ * Return: The allocated grid
+ */
+char **alloc_grid_string(char *str);
+
+/**
+ * getRows - get the number of pointer to refer to the 1D array each
+ *
+ * @str: the string
+ *
+ * Return: The number of rows
+ */
+int getRows(char *str);
 
 #endif /*MAIN_H*/
