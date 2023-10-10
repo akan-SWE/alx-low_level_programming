@@ -4,6 +4,7 @@
 /* system headers */
 #include <stdlib.h>
 #include <stdio.h>
+#include <math.h>
 
 /**
  * struct dog - Represents information about a dog.
@@ -35,4 +36,5 @@ struct dog
  */
 void init_dog(struct dog *d, char *name, float age, char *owner);
 
+void print_dog(struct dog *d);
 #endif /* DOG_H */
