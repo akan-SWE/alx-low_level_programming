@@ -1,17 +1,16 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
  * getRows - get the number of pointer to refer to the 1D array each
  *
  * @str: the string
- *
- * Return: The number of rows
- */
+*
+* Return: The number of rows
+*/
 int getRows(char *str)
 {
 
-	int rows;
+int rows;
 
 	rows = 0;
 	while (*str)
@@ -55,12 +54,13 @@ char **alloc_grid_string(char *str)
 		while (*str == ' ')
 			str++;
 
+		/* Get the length of each word in the string */
 		while (*str != ' ' && *str != '\0')
 		{
 			cols += 1;
 			str++;
 		}
-
+		/* Allocate memory for the length of the current word */
 		string_grid[i] = malloc((cols + NULL_BYTE) * sizeof(char));
 		i++;
 
@@ -74,7 +74,6 @@ char **alloc_grid_string(char *str)
 
 		cols = 0;
 	}
-
 	return (string_grid);
 }
 
@@ -92,36 +91,37 @@ char **strtow(char *str)
 	int i, j, k;
 
 	string_grid = alloc_grid_string(str);
-	i = 0;
+	i = -1;
 	k = 0;
 	while (str[k] != '\0')
 	{
 
+		/* Move pass any space */
 		if (str[k] == ' ')
 		{
 			k++;
 			continue;
 		}
+		else if (str[k + 1] != ' ' && str[k] != '\0')
+			i++;
 
+		/* This is a word because no space */
 		j = 0;
 		while (str[k] != ' ' && str[k] != '\0')
 		{
-
 			string_grid[i][j] = str[k];
-			j++;
-			k++;
+
+			j++, k++;
+			/* Terminate each word with a null character */
 			if (str[k + 1] == ' ' || str[k + 1] == '\0')
 				string_grid[i][j] = '\0';
 		}
 
 		if (str[k] == '\0')
 			break;
-
-		if (str[k + 1] != ' ' && str[k] != '\0')
-			i++;
 	}
 
-	string_grid[i + 1] = NULL;
+	string_grid[i + 1] = NULL; /* null-terminator */
 	return (string_grid);
 }
 
