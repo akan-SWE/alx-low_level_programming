@@ -1,6 +1,10 @@
 #ifndef DOG_H
 #define DOG_H
 
+/* system headers */
+#include <stdlib.h>
+#include <stdio.h>
+
 /**
  * struct dog - Represents information about a dog.
  *
