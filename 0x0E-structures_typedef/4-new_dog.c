@@ -22,11 +22,20 @@ dog_t *new_dog(char *name, float age, char *owner)
 
 	/* Create a copy of the string */
 	pDog->name = strdup(name);
-	pDog->owner = strdup(owner);
 
-	/* return if strdup fails when getting a copy */
-	if (pDog->name == NULL || pDog->owner == NULL)
+	if (pDog->name == NULL)
+	{
+		free(pDog);
 		return (NULL);
+	}
+
+	pDog->owner = strdup(owner);
+	if (pDog->owner == NULL)
+	{
+		free(pDog->name);
+		free(pDog);
+		return (NULL);
+	}
 
 	pDog->age = (age);
 
