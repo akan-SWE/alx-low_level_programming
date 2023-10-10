@@ -9,7 +9,6 @@
  *
  * Return: The new dog that is created, otherwise NULL if the function
  * fails
- *
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
@@ -20,9 +19,11 @@ dog_t *new_dog(char *name, float age, char *owner)
 	if (pDog == NULL)
 		return (NULL);
 
-	pDog->name = name;
-	pDog->age = age;
-	pDog->owner = owner;
+	/* Create a copy of the string */
+	pDog->name = strdup(name);
+	pDog->owner = strdup(owner);
+
+	pDog->age = (age);
 
 	return (pDog);
 }
