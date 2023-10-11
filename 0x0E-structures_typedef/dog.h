@@ -59,4 +59,13 @@ void print_dog(struct dog *d);
  * fails
  */
 dog_t *new_dog(char *name, float age, char *owner);
+
+/**
+ * free_dog - freeing up the dog_t
+ *
+ * @d: The object pointer of dog_t
+ *
+ * Return: void (Nothing)
+ */
+void free_dog(dog_t *d);
 #endif /* DOG_H */
