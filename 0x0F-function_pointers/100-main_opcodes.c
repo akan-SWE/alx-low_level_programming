@@ -1,4 +1,5 @@
 #include "function_pointers.h"
+#include <stdio.h>
 
 /**
  * main - Prints opcodes
@@ -11,7 +12,9 @@
 int main(int argc, char **argv)
 {
 	int i, num_of_bytes;
-	unsigned char *pMain = (unsigned char *)main;
+	unsigned char *pMain;
+
+	pMain = (unsigned char *)main;
 
 	if (argc != NUMOFARG)
 	{
@@ -27,8 +30,14 @@ int main(int argc, char **argv)
 	}
 
 	for (i = 0; i < num_of_bytes; i++)
-		printf("%02x ", pMain[i]);
-
+	{
+		printf("%02x", (pMain[i]));
+		if (i != (num_of_bytes - 1))
+		{
+			putchar(' ');
+		}
+	}
 	putchar('\n');
+
 	return (0);
 }
