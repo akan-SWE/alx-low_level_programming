@@ -42,6 +42,16 @@ void array_iterator(int *array, size_t size, void (*action)(int));
  */
 int int_index(int *array, int size, int (*cmp)(int));
 
+/**
+ * enum constant - defines constant
+ *
+ * @ZERO: symbolic to 0
+ * @NUMOFARG: symbolic to 2
+ */
+enum constant
+{
+	ZERO = 0, NUMOFARG = 2
+};
 #endif /* FUNCTION_POINTERS_H */
 
 
