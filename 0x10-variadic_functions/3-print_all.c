@@ -1,4 +1,5 @@
 #include "variadic_functions.h"
+#include <stdio.h>
 
 /**
  * print_all - prints anything
@@ -17,7 +18,6 @@
 void print_all(const char * const format, ...)
 {
 	int i, j;
-	char *separator;
 	va_list args;
 
 	/* Structure maps format to it corresponding function */
@@ -30,10 +30,9 @@ void print_all(const char * const format, ...)
 	};
 	va_start(args, format);
 
-	separator = ", ";
 	i =  0;
 	/* Check each until null, only print if it matches the format specifier */
-	while (format[i] != '\0')
+	while (format && format[i])
 	{
 		j = 0;
 		/* Each character are checked to see if there match with any specifier */
@@ -44,7 +43,7 @@ void print_all(const char * const format, ...)
 				speciferHandler[j].handler_ptr(args);
 				/* Don't print the separator last */
 				if (format[i + 1] != '\0')
-					printf("%s", separator);
+					printf(", ");
 			}
 			j++;
 		}
@@ -63,14 +62,14 @@ void print_all(const char * const format, ...)
  */
 void print_string(va_list args)
 {
-	String string;
+	String string, outputString[2];
 
 	string = va_arg(args, String);
 
-	if (string == NULL)
-		printf("(nil)");
-	else
-		printf("%s", string);
+	outputString[0] = "(nil)";
+	outputString[1] = string;
+
+	printf("%s", outputString[string != NULL]);
 }
 
 /**
