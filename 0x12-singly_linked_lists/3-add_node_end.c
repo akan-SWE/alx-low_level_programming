@@ -19,35 +19,32 @@ list_t *add_node_end(list_t **head, const char *str)
 
 	/* Memory allocation failed */
 	if (newNode == NULL)
-	{
-		free(newNode);
 		return (NULL);
-	}
 
 	newNode->str = strdup(str); /* Get a copy of the string */
-	newNode->next = NULL;
 
 	/* strdup fails */
 	if (newNode->str == NULL)
 	{
-		free(newNode->str);
 		free(newNode);
 		return (NULL);
 	}
 
+	newNode->next = NULL;
+
 	/* When the list is empty and this node is the first node */
 	if (*head == NULL)
-	{
 		*head = newNode;
-		return (*head);
+	else
+	{
+		/* Using a temporary pointer to tranverse through the list */
+		temp = *head;
+		while (temp->next != NULL)
+			temp = temp->next;
+
+		temp->next = newNode; /* Adding the new node to the list */
+		newNode->next = NULL;
 	}
 
-	/* Using a temporary pointer to tranverse through the list */
-	temp = *head;
-	while (temp->next != NULL)
-		temp = temp->next;
-
-	temp->next = newNode; /* Adding the new node to the list */
-	newNode->next = NULL;
 	return (newNode);
 }
