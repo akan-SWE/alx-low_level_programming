@@ -19,6 +19,15 @@ list_t *add_node(list_t **head, const char *str)
 		return (NULL);
 
 	newNode->str = strdup(str); /* Get a copy of the string */
+	newNode->next = NULL;
+
+	/* Head is NULL, when there is no node in the list so point new node to it */
+	if (*head == NULL)
+	{
+		*head = newNode;
+		return (*head);
+	}
+
 
 	newNode->next = *head; /* Let new node point to the previous first node */
 	*head = newNode; /* Set head to this new node */
