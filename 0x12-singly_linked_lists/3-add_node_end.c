@@ -19,10 +19,20 @@ list_t *add_node_end(list_t **head, const char *str)
 
 	/* Memory allocation failed */
 	if (newNode == NULL)
+	{
+		free(newNode);
 		return (NULL);
+	}
 
 	newNode->str = strdup(str); /* Get a copy of the string */
 	newNode->next = NULL;
+
+	/* strdup fails */
+	if (newNode->str == NULL)
+	{
+		free(newNode->str);
+		return (NULL);
+	}
 
 	/* When the list is empty and this node is the first node */
 	if (*head == NULL)
@@ -31,7 +41,7 @@ list_t *add_node_end(list_t **head, const char *str)
 		return (*head);
 	}
 
-	/* Using a temporary pointer to tranverse through the list till the last node */
+	/* Using a temporary pointer to tranverse through the list */
 	temp = *head;
 	while (temp->next != NULL)
 		temp = temp->next;
