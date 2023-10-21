@@ -5,6 +5,9 @@ section .data
 section .text
 global _start
 
+extern printf
+extern exit
+
 _start:
 	; Calling printf
 	lea rdi, format
