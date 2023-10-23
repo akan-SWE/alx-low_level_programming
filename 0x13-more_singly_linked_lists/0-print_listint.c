@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * print_lisint - prints all element of a @listint_t list
+ * print_listint - prints all element of a @listint_t list
  *
  * @h: A pointer to the first node in the list
  *
@@ -16,7 +16,7 @@ size_t print_listint(const listint_t *h)
 	{
 		printf("%d\n", h->n);
 
-		h = h->next;
+		h = h->next; /* Go to the next node */
 		noOfNodes++;
 	}
 
