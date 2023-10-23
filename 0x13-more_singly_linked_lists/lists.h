@@ -20,6 +20,8 @@ typedef struct listint_s
     struct listint_s *next;
 } listint_t;
 
+typedef unsigned int u_int;
+
 size_t print_listint(const listint_t *h);
 
 size_t print_listint(const listint_t *h);
