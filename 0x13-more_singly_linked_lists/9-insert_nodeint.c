@@ -22,6 +22,24 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	if (newNode == NULL)
 		return (NULL);
 
+	/* Insert data */
+	newNode->n = n;
+
+	/* When the head is empty and index is 0 */
+	if (*head == NULL && idx == 0)
+	{
+		*head = newNode;
+		return (newNode);
+	}
+
+	/* When the head is not empty but index is 0 */
+	if (idx == 0)
+	{
+		newNode->next = *head;
+		*head = newNode;
+		return (newNode);
+	}
+
 	temp = *head;
 	/* Get the index before the specified index */
 	for (i = 0; i < (idx - 1); i++)
@@ -42,9 +60,6 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	next = temp->next;
 	newNode->next = next;
 	temp->next = newNode;
-
-	/* Insert data */
-	newNode->n = n;
 
 	return (newNode);
 }
