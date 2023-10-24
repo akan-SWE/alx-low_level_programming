@@ -10,26 +10,24 @@
 listint_t *reverse_listint(listint_t **head)
 {
 
-	listint_t *current, *prev, *next;
+	listint_t *prev, *next;
 
 	/* Initial */
 	prev = NULL;
-	current = *head;
-	next = current->next;
+	next = (*head)->next;
 
-	while (current != NULL && next != NULL)
+	while (*head != NULL && next != NULL)
 	{
 		/* Pointing current to it previous */
-		current->next = prev;
-		prev = current;
+		(*head)->next = prev;
+		prev = (*head);
 
-		current = next;
-		next = current->next;
+		(*head) = next;
+		next = (*head)->next;
 	}
 
-	current->next = prev;
-	prev = current;
-
+	(*head)->next = prev;
+	prev = (*head);
 	/* Head now points to the last node making it the first */
 	*head = prev;
 	return (prev);
