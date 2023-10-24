@@ -12,18 +12,15 @@
  */
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
-	listint_t *newNode;
-	listint_t *temp, *next;
+	listint_t *newNode, *temp, *next;
 	u_int i;
 
 	newNode = malloc(sizeof(listint_t));
-
 	/* Memory allocation failed */
 	if (newNode == NULL)
 		return (NULL);
 
-	/* Insert data */
-	newNode->n = n;
+	newNode->n = n; /* Insert data (n) */
 
 	/* When the head is empty and index is 0 */
 	if (*head == NULL && idx == 0)
@@ -31,7 +28,6 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		*head = newNode;
 		return (newNode);
 	}
-
 	/* When the head is not empty but index is 0 */
 	if (idx == 0)
 	{
@@ -39,27 +35,21 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		*head = newNode;
 		return (newNode);
 	}
-
-	temp = *head;
 	/* Get the index before the specified index */
-	for (i = 0; i < (idx - 1); i++)
+	for (temp = *head, i = 0; i < (idx - 1); i++)
 	{
 		temp = temp->next;
 		if (temp == NULL)
 			break;
 	}
-
-	/* Not possible to add node at such index */
 	if (temp == NULL)
 	{
 		free(newNode);
 		return (NULL);
 	}
-
 	/* Swap */
 	next = temp->next;
 	newNode->next = next;
 	temp->next = newNode;
-
 	return (newNode);
 }
