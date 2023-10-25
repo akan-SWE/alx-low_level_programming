@@ -29,17 +29,20 @@ int print_listint_safe(listint_t *head)
 
 			/* A loop exist */
 			if (slow == fast)
-				break;
+			break;
 		}
 	}
 	/* There is no loop */
 	if (slow != fast)
 		noOfNodes = noLoopPrint(head);
 	else
-	{
+		{
 		/* There is a loop */
 		noOfNodes += getNumOfNodesBeforeLoop(head, slow, &temp);
 		noOfNodes += getNumOfNodesInLoop(temp, temp->next);
+
+        /* Meeting point */
+		printf("-> [%p] %d\n", (void *)temp, temp->n);
 	}
 
 	return (noOfNodes);
@@ -77,7 +80,7 @@ int noLoopPrint(const listint_t *head)
  * Return: The number of nodes before the loop
  */
 int getNumOfNodesBeforeLoop(listint_t *head, const listint_t *slow,
-						listint_t **temp)
+							listint_t **temp)
 {
 	int noOfNodes;
 
