@@ -49,7 +49,17 @@ listint_t *reverse_listint(listint_t **head);
 
 int print_listint_safe(listint_t *head);
 int noLoopPrint(const listint_t *head);
-int getNumOfNodesBeforeLoop(listint_t *head, const listint_t *slow, listint_t **temp);
+int getNumOfNodesBeforeLoop(listint_t *head,
+							const listint_t *slow, listint_t **temp);
 int getNumOfNodesInLoop(const listint_t *stop, const listint_t *traverse);
 
+
+size_t free_listint_safe(listint_t **h);
+
+int freeNumOfNodesBeforeLoop(listint_t *head, const listint_t *slow,
+							listint_t **temp);
+
+int freeNumOfNodesInLoop(const listint_t *stop, listint_t *traverse);
+
+int free_listint_withoutLoop(listint_t *head);
 #endif /* LIST_H */
