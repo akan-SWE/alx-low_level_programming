@@ -41,7 +41,7 @@ int print_listint_safe(listint_t *head)
 		noOfNodes += getNumOfNodesBeforeLoop(head, slow, &temp);
 		noOfNodes += getNumOfNodesInLoop(temp, temp->next);
 
-        /* Meeting point */
+		/* Meeting point */
 		printf("-> [%p] %d\n", (void *)temp, temp->n);
 	}
 
@@ -90,8 +90,8 @@ int getNumOfNodesBeforeLoop(listint_t *head, const listint_t *slow,
 	{
 		noOfNodes++;
 		printf("[%p] %d\n", (void *)head, head->n);
-		head = head->next;
 		slow = slow->next;
+		head = head->next;
 	}
 
 	printf("[%p] %d\n", (void *)head, head->n);
@@ -114,9 +114,15 @@ int getNumOfNodesInLoop(const listint_t *stop, const listint_t *traverse)
 
 	noOfNodes = 0;
 
+	/* Traverse through the loop starting from the next pointer after stop */
 	do {
-		noOfNodes++;
-		printf("[%p] %d\n", (void *)traverse, traverse->n);
+
+		if (traverse != stop)
+		{
+			noOfNodes++;
+			printf("[%p] %d\n", (void *)traverse, traverse->n);
+		}
+
 		traverse = traverse->next;
 	} while (traverse != stop);
 
