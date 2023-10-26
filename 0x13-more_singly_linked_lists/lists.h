@@ -62,4 +62,8 @@ int freeNumOfNodesBeforeLoop(listint_t *head, const listint_t *slow,
 int freeNumOfNodesInLoop(const listint_t *stop, listint_t *traverse);
 
 int free_listint_withoutLoop(listint_t *head);
+
+listint_t *getLoopStart(listint_t *head, listint_t *slow);
+
+listint_t *find_listint_loop(listint_t *head);
 #endif /* LIST_H */
