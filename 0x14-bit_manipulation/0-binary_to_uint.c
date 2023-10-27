@@ -1,13 +1,13 @@
 #include "main.h"
 
 /**
- * convertToNumber - Converts binaries to number in base 10
+ * binary_to_uint - Converts binaries to number in base 10
  *
  * @binaries: The binaries to convert number
  *
  * Return: The number
  */
-int convertToNumber(const char *binaries)
+int binary_to_uint(const char *binaries)
 {
 	u_int number, i;
 	char *rev_binary;
