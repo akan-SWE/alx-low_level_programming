@@ -58,4 +58,13 @@ void print_binary(unsigned long int n);
  */
 void print_binary_helper(unsigned long int n);
 
+/**
+ * get_bit - Get the value of a bit at a given index
+ *
+ * @n: The number
+ * @index: The index
+ *
+ * Return: The value of a bit at a given index, -1 if an error occurs
+ */
+int get_bit(unsigned long int n, unsigned int index);
 #endif /* MAIN_H_ */
