@@ -13,6 +13,9 @@ int binary_to_uint(const char *binaries)
 	char *rev_binary;
 
 
+	if (binaries == NULL)
+		return (0);
+
 	rev_binary = reverse_string(binaries); /* Reverse the binary number */
 
 	i = 0, number = 0;
