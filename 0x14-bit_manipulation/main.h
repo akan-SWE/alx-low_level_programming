@@ -89,8 +89,8 @@ int set_bit(unsigned long int *n, unsigned int index);
 int clear_bit(unsigned long int *n, unsigned int index);
 
 /**
- * flip_bits - Calculate the number of bits needed to flip from one number to another
- * *
+ * flip_bits - Calculate the number of bits needed
+ * to flip from one number to another
  *
  * @n: The number to flip to
  * @m: The number we are checking for differences
@@ -98,4 +98,11 @@ int clear_bit(unsigned long int *n, unsigned int index);
  * Return: The number of bit flips needed to get to @n
  */
 unsigned int flip_bits(unsigned long int n, unsigned long int m);
+
+/**
+ * get_endianness - Checks the endianness
+ *
+ * Return: 1 if it a little endian, and 0 if it a big endian
+ */
+int get_endianness(void);
 #endif /* MAIN_H_ */
