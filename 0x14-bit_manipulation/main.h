@@ -87,4 +87,15 @@ int set_bit(unsigned long int *n, unsigned int index);
  * Return: 1 for success, otherwise -1 if an error occurred
  */
 int clear_bit(unsigned long int *n, unsigned int index);
+
+/**
+ * flip_bits - Calculate the number of bits needed to flip from one number to another
+ * *
+ *
+ * @n: The number to flip to
+ * @m: The number we are checking for differences
+ *
+ * Return: The number of bit flips needed to get to @n
+ */
+unsigned int flip_bits(unsigned long int n, unsigned long int m);
 #endif /* MAIN_H_ */
