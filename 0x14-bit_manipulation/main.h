@@ -77,4 +77,14 @@ int get_bit(unsigned long int n, unsigned int index);
  * Return: 1 if it worked, -1 if an error occurred
  */
 int set_bit(unsigned long int *n, unsigned int index);
+
+/**
+ * clear_bit - Sets the value of a bit at a given index to 0
+ *
+ * @n: The number
+ * @index: The index
+ *
+ * Return: 1 for success, otherwise -1 if an error occurred
+ */
+int clear_bit(unsigned long int *n, unsigned int index);
 #endif /* MAIN_H_ */
