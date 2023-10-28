@@ -11,8 +11,51 @@
 typedef unsigned int u_int;
 
 /* Prototypes */
+
+/**
+ * power - Raise 2 to the power of a number
+ *
+ * @power: The number to raise 2 by
+ *
+ * Return: The result of the power, 0 if the power is 0
+ */
 int power(u_int power);
-int binary_to_uint(const char *binary);
+
+/**
+ * binary_to_uint - Converts binaries to number in base 10
+ *
+ * @binaries: The binaries to convert number
+ *
+ * Return: The number
+ */
+int binary_to_uint(const char *binaries);
+
+/**
+ * reverse_string - Reverse a string
+ *
+ * @str: The string to reverse
+ *
+ * Return: The reversed string
+ */
 char *reverse_string(const char *str);
+
+/**
+ * print_binary - Print 0 if 0 is the only digit passed otherwise
+ * call the helper function to print the number in binary
+ *
+ * @n: The number to print in binary
+ *
+ * Return: void (Nothing)
+ */
+void print_binary(unsigned long int n);
+
+/**
+ * print_binary_helper - Prints a number in binary
+ *
+ * @n: The number to print
+ *
+ * Return: void (Nothing)
+ */
+void print_binary_helper(unsigned long int n);
 
 #endif /* MAIN_H_ */
