@@ -2,13 +2,13 @@
 #include <stdbool.h>
 
 /**
- * flip_bits - Calculate the number of bits needed to flip from one number to another
- * *
+ * flip_bits - Calculate the number of bits needed
+ * to flip from one number to another.
  *
- * @n: The number to flip to
- * @m: The number we are checking for differences
+ * @n: The number to flip to.
+ * @m: The number we are checking for differences.
  *
- * Return: The number of bit flips needed to get to @n
+ * Return: The number of bit flips needed to get to @n.
  */
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
