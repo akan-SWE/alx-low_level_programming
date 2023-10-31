@@ -25,15 +25,10 @@ int create_file(const char *filename, char *text_content)
 
 	/* Failed to create file */
 	if (fd == -1)
-	{
-		perror("File cannot be created");
-		close(fd);
 		return (-1);
-	}
 
 	if (write(fd, text_content, strlen(text_content)) == -1)
 	{
-		perror("File cannot be written to");
 		close(fd);
 		return (-1);
 	}
