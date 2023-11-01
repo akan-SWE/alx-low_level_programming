@@ -8,6 +8,8 @@
 #include <unistd.h>
 #include <string.h>
 
+/* Constant */
+#define SIZE 1024
 /**
  * read_textfile - reads a text file and prints it to the
  * POSIX standard output.
@@ -42,4 +44,34 @@ int create_file(const char *filename, char *text_content);
 int append_text_to_file(const char *filename, char *text_content);
 
 
+/**
+ * cp - Copy's one file to another
+ *
+ * Return: void (Nothing)
+ */
+void cp(char *, char *);
+
+/**
+ * add_to_buffer - Adds data to buffer, effectively reducig number of
+ * system calls to write
+ *
+ * Return: The number of character added to the buffer
+ */
+ssize_t add_to_buffer(char **, const char *, ssize_t *,
+					  ssize_t *, ssize_t);
+
+/**
+ * file_to - File to content or data copy to
+ *
+ * Return: void (Nothing)
+ */
+void file_to(char *, char *, ssize_t);
+
+/**
+ * free_all - Frees all allocated memory including
+ * the file descriptor
+ *
+ * Return: void (Nothing)
+ */
+void free_all(char *, char *, int);
 #endif /* MAIN_H */
