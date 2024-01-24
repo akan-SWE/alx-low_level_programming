@@ -1,5 +1,8 @@
 #ifndef MAIN_H
 #define MAIN_H
+
+#include <stdio.h>
+
 int _putchar(char c);
 #endif
 /*
@@ -140,4 +143,4 @@ void print_even_fibonacci(void);
  *
  * Return: void
  */
-void print_fibonnacciTwo(void);
+void print_fibonacci_To_98(void);
