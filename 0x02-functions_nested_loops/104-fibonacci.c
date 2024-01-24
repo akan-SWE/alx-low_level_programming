@@ -1,5 +1,5 @@
 #include "main.h"
-#include <stdio.h>
+
 /**
  * main - Entry point
  *
@@ -9,33 +9,29 @@
  */
 int main(void)
 {
-	print_fibonnacciTwo();
+	print_fibonacci_To_98();
 	return (0);
 }
 /**
- * print_fibonnacciTwo - print the first 98 fibonnacci from 1 and 2
+ * print_fibonacci_To_98 - print the first 98 fibonnacci from 1 and 2
  *
  * Return: void
  */
-void print_fibonnacciTwo(void)
+void print_fibonacci_To_98(void)
 {
-	unsigned long int i, j, carry, count;
+	unsigned long a, b, c;
+	const int n = 98;
+	int i;
 
-	i = 1;
-	j = 2;
-	count = 3;
-	printf("%lu, %lu, ", i, j);
-	while (count <= 99)
+	a = 1, b = 2;
+	printf("%lu, %lu, ", a, b);
+	for (i = 1; i <= n - 2; i++)
 	{
-		carry = i + j;
-
-		if (count != 99)
-			printf("%lu, ", carry);
-		else
-			printf("%lu", carry);
-		i = j;
-		j = carry;
-		count++;
+		c = a + b;
+		a = b, b = c;
+		printf("%lu", c);
+		if (i != n - 2)
+			printf(", ");
 	}
 	putchar('\n');
 }
