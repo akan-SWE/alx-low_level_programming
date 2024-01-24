@@ -25,13 +25,14 @@ void print_fibonacci_To_98(void)
 
 	a = 1, b = 2;
 	printf("%lu, %lu, ", a, b);
-	for (i = 1; i <= n - 2; i++)
+	for (i = 1; i < n - 2; i++)
 	{
 		c = a + b;
 		a = b, b = c;
-		printf("%lu", c);
-		if (i != n - 2)
-			printf(", ");
+		printf("%lu, ", c);
 	}
-	putchar('\n');
+
+	/* print the last number (98th) */
+	c = a + b;
+	printf("%lu, \n", c);
 }
