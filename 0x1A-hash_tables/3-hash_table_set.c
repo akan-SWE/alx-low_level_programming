@@ -1,6 +1,27 @@
 #include "hash_tables.h"
 
 /**
+ * key_is_unique - Checks if a key is not already in a list
+ *
+ * @head: pointer to the first node
+ * @key: the key
+ *
+ * Return: NULL if the key is unique, otherwise the address of the node
+ * if not unique
+ */
+hash_node_t *key_is_unique(hash_node_t *head, char *key)
+{
+	while (head)
+	{
+		if (!strcmp(head->key, key))
+			return (head);
+
+		head = head->next;
+	}
+	return (NULL);
+}
+
+/**
  * insert_beg - inserts a node at the beginning of a list
  *
  * @head: pointer to the first node
@@ -11,15 +32,22 @@
  */
 int insert_beg(hash_node_t **head, char *key, char *value)
 {
-	hash_node_t *node = malloc(sizeof(hash_node_t));
+	hash_node_t *node = key_is_unique(*head, key);
 
 	if (!node)
-		return (0);
+	{
+		node = malloc(sizeof(hash_node_t));
 
-	node->key = key;
-	node->value = value;
-	node->next = *head;
-	*head = node;
+		if (!node)
+			return (0);
+
+		node->key = key;
+		node->value = value;
+		node->next = *head;
+		*head = node;
+	}
+	else
+		node->value = value;
 
 	return (1);
 }
