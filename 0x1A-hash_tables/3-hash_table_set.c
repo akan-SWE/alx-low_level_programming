@@ -47,7 +47,10 @@ int insert_beg(hash_node_t **head, char *key, char *value)
 		*head = node;
 	}
 	else
+	{
+		free(node->value), free(key);
 		node->value = value;
+	}
 
 	return (1);
 }

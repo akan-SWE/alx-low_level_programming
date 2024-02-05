@@ -36,6 +36,7 @@ typedef struct hash_table_s
 	hash_node_t **array;
 } hash_table_t;
 
+void hash_table_delete(hash_table_t *ht);
 void hash_table_print(const hash_table_t *);
 char *get_value(hash_node_t *, const char *);
 unsigned long int hash_djb2(const unsigned char *);
