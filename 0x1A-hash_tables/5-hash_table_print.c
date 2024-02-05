@@ -1,7 +1,6 @@
 #include "hash_tables.h"
 #include <stdio.h>
 
-
 /**
  * print_node - output the key and value for each node in the list
  *
@@ -17,10 +16,10 @@ void print_node(hash_node_t *temp)
 
 		if (temp->next)
 			printf(", ");
+
 		temp = temp->next;
 	}
 }
-
 
 /**
  * hash_table_print - print the key/value in the order that
@@ -32,19 +31,24 @@ void print_node(hash_node_t *temp)
  */
 void hash_table_print(const hash_table_t *ht)
 {
-	unsigned long int i;
+	unsigned long int i, j;
 
 	if (!ht)
 		return;
 
+	j = 0;
 	putchar('{');
 	for (i = 0; i < ht->size; i++)
 	{
 		hash_node_t *head = ht->array[i];
 
 		if (head)
-			print_node(head);
-
+		{
+			if (j != 0)
+				printf(", ");
+			print_node(ht->array[i]);
+			j++;
+		}
 	}
 	printf("}\n");
 }
