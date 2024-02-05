@@ -1,18 +1,27 @@
 #include "hash_tables.h"
 
 /**
- * insert_end - inserts a node at the end of a list
+ * insert_beg - inserts a node at the beginning of a list
  *
  * @head: pointer to the first node
- * @node: the node to insert
+ * @key: the key of the current node
+ * @value: the value of the current node
  *
- * Return: (void)
+ * Return: 1 on success 0 on failure
  */
-void insert_end(hash_node_t *head, hash_node_t *node)
+int insert_beg(hash_node_t **head, char *key, char *value)
 {
-	while (head->next)
-		head = head->next;
-	head->next = node;
+	hash_node_t *node = malloc(sizeof(hash_node_t));
+
+	if (!node)
+		return (0);
+
+	node->key = key;
+	node->value = value;
+	node->next = *head;
+	*head = node;
+
+	return (1);
 }
 
 /**
@@ -27,28 +36,25 @@ void insert_end(hash_node_t *head, hash_node_t *node)
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
-	hash_node_t *node;
-	/* return if key is empty */
-	if (!strlen(key))
+	char *key_cpy, *value_cpy;
+	/* return if key is empty or hash table is None*/
+	if (!strlen(key) || !ht)
 		return (0);
 
-	/* get the index to the key */
+	/* generate the index to the key */
 	index = key_index((const unsigned char *)key, ht->size);
 
-	node = malloc(sizeof(hash_node_t));
-	if (!node)
+	key_cpy = strdup(key);
+	if (!key_cpy)
 		return (0);
 
-	node->key = strdup(key);
-	node->value = strdup(value);
-	node->next = NULL;
+	value_cpy = strdup(value);
+	if (!value_cpy)
+	{
+		free(key_cpy);
+		return (0);
+	}
 
-	/* insert directly in the box if current index is empty */
-	if (!ht->array[index])
-		ht->array[index] = node;
-	else
-		/* insert at the end of the list starting from the index */
-		insert_end(ht->array[index], node);
-
-	return (1);  /* success */
+	/* insert into the list at the index generated */
+	return (insert_beg(&ht->array[index], key_cpy, value_cpy));
 }
