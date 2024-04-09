@@ -4,7 +4,7 @@
 
 /* Prototypes */
 shash_node_t *key_is_unique(shash_node_t *, char *);
-shash_node_t *insert_beg(shash_node_t **, char *, char *);
+shash_node_t *insert_node(shash_node_t **, char *, char *);
 void insert_to_sorted_list(shash_table_t *, shash_node_t *);
 
 
@@ -17,7 +17,7 @@ void insert_to_sorted_list(shash_table_t *, shash_node_t *);
  */
 int ascii_sum(char *str)
 {
-	int sum = 0;
+	unsigned long int sum = 0;
 
 	while (*str)
 	{
@@ -29,7 +29,7 @@ int ascii_sum(char *str)
 
 
 /**
- * insert_beg - inserts a node into the sorted hash table
+ * insert_node - inserts a node to the index in the sorted hash table
  *
  * @head: Reference to the index where the node will be inserted to
  * @key: The key
@@ -37,7 +37,7 @@ int ascii_sum(char *str)
  *
  * Return: The node otherwise NULL if an error occurred
  */
-shash_node_t *insert_beg(shash_node_t **head, char *key, char *value)
+shash_node_t *insert_node(shash_node_t **head, char *key, char *value)
 {
 	shash_node_t *node = key_is_unique(*head, key);
 
@@ -99,24 +99,28 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 {
 	shash_node_t *node;
 	unsigned long int index;
-	char *key_cpy, *value_cpy;
+	char *keyCpy, *valueCpy;
 	/* return if key is empty or hash table is NULL */
 	if (strlen(key) == 0 || ht == NULL)
 		return (0);
 
-	key_cpy = strdup(key);
-	if (key_cpy == NULL)
+	keyCpy = strdup(key);
+	if (keyCpy == NULL)
 		return (0);
-	value_cpy = strdup(value);
-	if (value_cpy == NULL)
+	valueCpy = strdup(value);
+	if (valueCpy == NULL)
 	{
-		free(key_cpy);
+		free(keyCpy);
 		return (0);
 	}
 
 	index = key_index((const unsigned char *)key, ht->size);  /* index */
-	node = insert_beg(&ht->array[index], key_cpy, value_cpy);
-
+	node = insert_node(&ht->array[index], keyCpy, valueCpy);
+	if (node == NULL)
+	{
+		free(keyCpy), free(valueCpy);
+		return (0);
+	}
 	insert_to_sorted_list(ht, node);
 	return (1);
 }
@@ -143,7 +147,7 @@ void insert_to_sorted_list(shash_table_t *ht, shash_node_t *node)
 
 		if (temp == NULL)
 		{
-			/* the new node key has the highest ascii sum so inserting at end*/
+			/* the new node key has the highest ascii sum so insert at end */
 			node->snext = NULL;
 			node->sprev = ht->stail;
 			ht->stail->snext = node;
@@ -157,13 +161,13 @@ void insert_to_sorted_list(shash_table_t *ht, shash_node_t *node)
 				node->sprev = temp->sprev;
 			}
 			temp->sprev = node;
-			/* update head */
-			while (ht->shead->sprev)
-				ht->shead = ht->shead->sprev;
-			/* update tail */
-			while (ht->stail->snext)
-				ht->stail = ht->stail->snext;
 		}
+		/* update head */
+		while (ht->shead->sprev)
+			ht->shead = ht->shead->sprev;
+		/* update tail */
+		while (ht->stail->snext)
+			ht->stail = ht->stail->snext;
 	}
 }
 
