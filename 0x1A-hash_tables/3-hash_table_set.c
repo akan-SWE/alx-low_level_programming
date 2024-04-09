@@ -13,16 +13,19 @@ hash_node_t *key_is_unique(hash_node_t *head, char *key)
 {
 	while (head)
 	{
-		if (!strcmp(head->key, key))
+		/* found a match */
+		if (strcmp(head->key, key) == 0)
 			return (head);
 
 		head = head->next;
 	}
-	return (NULL);
+	return (NULL);  /* no match key is unique */
 }
 
 /**
- * insert_beg - inserts a node at the beginning of a list
+ * insert_beg - Inserts a node at the beginning of a list.
+ * If the node is unique based on the key, insert, else if the key is
+ * not unique replace the node value with @value
  *
  * @head: pointer to the first node
  * @key: the key of the current node
@@ -34,7 +37,7 @@ int insert_beg(hash_node_t **head, char *key, char *value)
 {
 	hash_node_t *node = key_is_unique(*head, key);
 
-	if (!node)
+	if (node == NULL)  /* key is unique */
 	{
 		node = malloc(sizeof(hash_node_t));
 
@@ -46,10 +49,10 @@ int insert_beg(hash_node_t **head, char *key, char *value)
 		node->next = *head;
 		*head = node;
 	}
-	else
+	else  /* key is not unique */
 	{
-		free(node->value), free(key);
-		node->value = value;
+		free(node->value), free(key);  /* free up the previous value */
+		node->value = value;  /* insert new value */
 	}
 
 	return (1);
