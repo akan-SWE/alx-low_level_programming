@@ -1,0 +1,10 @@
+.PHONY: all
+
+CC = gcc
+SRC = %.c
+
+all: main.o school.o
+	$(CC) $^ -o school
+
+%.o: $(SRC)
+	@$(CC) -c $<
