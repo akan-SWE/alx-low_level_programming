@@ -15,17 +15,19 @@ def island_perimeter(grid):
        grid (list of list) - The grid representing the island.
     """
     perimeter = 0
-    for i in range(len(grid)):
-        for j in range(i + 1):
-            if grid[i][j]:
-                # Calculate water (0s) horizontally
-                if grid[i][j + 1] == 0:
+    rows = len(grid)
+    cols = len(grid[0])
+    for i in range(rows):
+        for j in range(cols):
+            if grid[i][j] == 1:
+                # Check all four directions (up, down, left, right)
+                if i == 0 or grid[i - 1][j] == 0:  # Top
                     perimeter += 1
-                if grid[i][j - 1] == 0:
+                if i == rows - 1 or grid[i + 1][j] == 0:  # Bottom
                     perimeter += 1
-                # Calculate water (0s) vertically
-                if grid[i + 1][j] == 0:
+                if j == 0 or grid[i][j - 1] == 0:  # Left
                     perimeter += 1
-                if grid[i - 1][j] == 0:
+                # Check right edge or right neighbor
+                if j == cols - 1 or grid[i][j + 1] == 0:  # Right
                     perimeter += 1
     return perimeter
