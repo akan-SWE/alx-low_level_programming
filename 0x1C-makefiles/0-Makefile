@@ -1,0 +1,7 @@
+.PHONY: all
+
+all: main.o school.o
+	gcc $^ -o school
+
+%.o: %.c
+	@gcc -c $<
