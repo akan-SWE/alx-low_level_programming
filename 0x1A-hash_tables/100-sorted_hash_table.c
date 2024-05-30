@@ -7,6 +7,28 @@ shash_node_t *key_is_unique(shash_node_t *, char *);
 shash_node_t *insert_node(shash_node_t **, char *, char *);
 void insert_to_sorted_list(shash_table_t *, shash_node_t *);
 
+/**
+ * key_is_unique - Checks if a key is unique
+ *
+ * @head: Pointer to the index in the hash table
+ * @key: The key
+ *
+ * Return: NULL if the key is unique otherwise the node where
+ * the key is found
+ */
+shash_node_t *key_is_unique(shash_node_t *head, char *key)
+{
+	while (head)
+	{
+		/* found a match */
+		if (strcmp(head->key, key) == 0)
+			return (head);
+
+		head = head->next;
+	}
+	return (NULL);  /* no match key is unique */
+}
+
 
 /**
  * ascii_sum - Calculates the sum of the ascii values in the string
@@ -45,7 +67,10 @@ shash_node_t *insert_node(shash_node_t **head, char *key, char *value)
 	{
 		node = malloc(sizeof(shash_node_t));
 		if (node == NULL)
+		{
+			free(value), free(key);
 			return (NULL);
+		}
 
 		node->key = key;
 		node->value = value;
@@ -58,31 +83,9 @@ shash_node_t *insert_node(shash_node_t **head, char *key, char *value)
 	{
 		free(node->value), free(key);  /* free up the previous value */
 		node->value = value;  /* insert new value */
+		return (NULL);
 	}
 	return (node);
-}
-
-
-/**
- * key_is_unique - Checks if a key is unique
- *
- * @head: Pointer to the index in the hash table
- * @key: The key
- *
- * Return: NULL if the key is unique otherwise the node where
- * the key is found
- */
-shash_node_t *key_is_unique(shash_node_t *head, char *key)
-{
-	while (head)
-	{
-		/* found a match */
-		if (strcmp(head->key, key) == 0)
-			return (head);
-
-		head = head->next;
-	}
-	return (NULL);  /* no match key is unique */
 }
 
 
@@ -117,10 +120,8 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	index = key_index((const unsigned char *)key, ht->size);  /* index */
 	node = insert_node(&ht->array[index], keyCpy, valueCpy);
 	if (node == NULL)
-	{
-		free(keyCpy), free(valueCpy);
 		return (0);
-	}
+
 	insert_to_sorted_list(ht, node);
 	return (1);
 }
