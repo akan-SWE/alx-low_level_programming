@@ -1,0 +1,20 @@
+.PHONY: all clean oclean fclean re
+
+SRC = $(shell ls | grep .c$$)
+OBJ = $(SRC:.c=.o)
+NAME = school
+CFLAGS = -Wall -Werror -Wextra -pedantic
+CC = gcc $(CFLAGS)
+
+all: $(OBJ) m.h
+	$(CC) $(OBJ) -o $(NAME)
+
+clean:
+	$(RM) *~ \#*\# .*.swp $(NAME)
+
+oclean:
+	$(RM) $(OBJ)
+
+fclean: clean oclean
+
+re: fclean all
