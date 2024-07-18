@@ -5,9 +5,10 @@
 #include <stdio.h>
 
 
-int jump_search(int *array, size_t size, int value);
-int linear_search(int *array, size_t size, int value);
-int binary_search(int *array, size_t size, int value);
-void print_array(int *array, size_t start, size_t end);
+int jump_search(int *, size_t, int);
+int linear_search(int *, size_t, int);
+int binary_search(int *, size_t, int);
+void print_array(int *, size_t, size_t);
+int interpolation_search(int *, size_t, int);
 
 #endif /* SEARCH_ALGOS_H_ */
