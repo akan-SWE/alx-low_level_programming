@@ -33,7 +33,6 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 		back = front;
 		/* Move front pointer jump_size steps ahead or until the end of the list */
 		while (j && front->next)
-
 			front = front->next, j--;
 
 		printf("Value checked at index [%lu] = [%d]\n", front->index, front->n);
