@@ -8,8 +8,8 @@
 int jump_search(int *, size_t, int);
 int linear_search(int *, size_t, int);
 int binary_search(int *, size_t, int);
+int advanced_binary(int *, size_t, int);
 void print_array(int *, size_t, size_t);
 int exponential_search(int *, size_t, int);
 int interpolation_search(int *, size_t, int);
-
 #endif /* SEARCH_ALGOS_H_ */
